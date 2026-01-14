@@ -1,4 +1,4 @@
-FROM daskdev/dask:2025.7.0-py3.12
+FROM python:3.12-slim
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
