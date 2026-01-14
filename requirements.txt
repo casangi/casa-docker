@@ -1,5 +1,1 @@
-prefect==3.4.9
-prefect-dask==0.3.6
-dask-kubernetes==2025.7.0
-astroviper==0.0.29
 casatasks==6.7.2.42
