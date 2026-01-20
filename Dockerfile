@@ -5,8 +5,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       build-essential \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-USER $NB_UID
+RUN groupadd -r radpsuser && useradd -r -g radpsuser radpsuser
+RUN mkdir -p /home/radpsuser
+RUN chown -R radpsuser:radpsuser /home/radpsuser
+USER radpsuser
+RUN mkdir -p /home/radpsuser/.casa/data
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-USER $NB_USER
